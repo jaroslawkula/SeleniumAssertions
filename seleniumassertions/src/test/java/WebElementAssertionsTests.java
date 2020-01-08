@@ -7,9 +7,6 @@ import org.mockito.MockitoAnnotations;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
 @Test
 public class WebElementAssertionsTests {
 
