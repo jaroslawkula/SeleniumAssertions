@@ -64,4 +64,34 @@ public class WebElementAssertionsTests {
                 .isEnabled())
                 .doesNotThrowAnyException();
     }
+
+    public void isSelected() {
+        Mockito.when(element.isSelected())
+                .thenReturn(false);
+        Assertions.assertThatThrownBy(() -> WebElementAssert.assertThat(element)
+                .isSelected())
+                .isInstanceOf(clasz)
+                .hasMessage("Expected element was not selected");
+
+        Mockito.when(element.isSelected())
+                .thenReturn(true);
+        Assertions.assertThatCode(() -> WebElementAssert.assertThat(element)
+                .isSelected())
+                .doesNotThrowAnyException();
+    }
+
+    public void isNotSelected() {
+        Mockito.when(element.isSelected())
+                .thenReturn(true);
+        Assertions.assertThatThrownBy(() -> WebElementAssert.assertThat(element)
+                .isNotSelected())
+                .isInstanceOf(clasz)
+                .hasMessage("Expected element was selected");
+
+        Mockito.when(element.isSelected())
+                .thenReturn(false);
+        Assertions.assertThatCode(() -> WebElementAssert.assertThat(element)
+                .isNotSelected())
+                .doesNotThrowAnyException();
+    }
 }
