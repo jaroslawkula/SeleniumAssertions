@@ -49,4 +49,19 @@ public class WebElementAssertionsTests {
                 .isDisplayed())
                 .doesNotThrowAnyException();
     }
+
+    public void isEnabled() {
+        Mockito.when(element.isEnabled())
+                .thenReturn(false);
+        Assertions.assertThatThrownBy(() -> WebElementAssert.assertThat(element)
+                .isEnabled())
+                .isInstanceOf(clasz)
+                .hasMessage("Expected element was not enabled");
+
+        Mockito.when(element.isEnabled())
+                .thenReturn(true);
+        Assertions.assertThatCode(() -> WebElementAssert.assertThat(element)
+                .isEnabled())
+                .doesNotThrowAnyException();
+    }
 }
