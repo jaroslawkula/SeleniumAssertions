@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.AbstractAssert;
 import org.openqa.selenium.WebElement;
 
+import java.util.*;
+
 public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElement> {
     public WebElementAssert(WebElement webElement) {
         super(webElement, WebElementAssert.class);
@@ -22,6 +24,13 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
     public WebElementAssert isEnabled() {
         isNotNull();
         if (!actual.isEnabled()) failWithMessage("Expected element was not enabled");
+        return this;
+    }
+
+    public WebElementAssert isNotEnabled() {
+        isNotNull();
+        if (actual.isEnabled()) failWithMessage("Expected element was enabled");
+
         return this;
     }
 
@@ -61,11 +70,28 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
         return this;
     }
 
+    public WebElementAssert attributeValueStartsWithAnyOf(String attribute, String... prefixes) {
+        isNotNull();
+        String message = "Expected element to have attr <%s> value starts with any of <%s>. But was <%s>";
+        String actualValue = actual.getAttribute(attribute);
+        if (!StringUtils.startsWithAny(attribute, prefixes))
+            failWithMessage(message, attribute, Arrays.toString(prefixes), actualValue);
+        return this;
+    }
+
     public WebElementAssert valueAttributeHas(String expectedValue) {
         isNotNull();
         String message = "Expected element to have <value> attribute <%s>. But was <%s>";
         String actualValue = actual.getAttribute("value");
         if (!actualValue.equals(expectedValue)) failWithMessage(message, expectedValue, actualValue);
+        return this;
+    }
+
+    public WebElementAssert hasValueAttribute(String value) {
+        isNotNull();
+        String message = "Expected element to have value attribute <%s>. But was <%s>";
+        String actualValue = actual.getAttribute("value");
+        if (!actualValue.equals(value)) failWithMessage(message, value, actualValue);
         return this;
     }
 
@@ -114,6 +140,14 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
         String message = "Expected element to be not empty string, not null, and not whitespace characters only. But contained <%s>";
         String actualValue = actual.getText();
         if (StringUtils.isBlank(actualValue)) failWithMessage(message, actualValue);
+        return this;
+    }
+
+    public WebElementAssert hasAttribute(String attribute) {
+        isNotNull();
+        if (Objects.isNull(actual.getAttribute(attribute))) {
+            failWithMessage("Element has no attribute <%s>", attribute);
+        }
         return this;
     }
 }
