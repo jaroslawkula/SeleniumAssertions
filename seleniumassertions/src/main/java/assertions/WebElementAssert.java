@@ -30,7 +30,6 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
     public WebElementAssert isNotEnabled() {
         isNotNull();
         if (actual.isEnabled()) failWithMessage("Expected element was enabled");
-
         return this;
     }
 
@@ -87,19 +86,19 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
         return this;
     }
 
-    public WebElementAssert hasValueAttribute(String value) {
-        isNotNull();
-        String message = "Expected element to have value attribute <%s>. But was <%s>";
-        String actualValue = actual.getAttribute("value");
-        if (!actualValue.equals(value)) failWithMessage(message, value, actualValue);
-        return this;
-    }
-
     public WebElementAssert cssAttributeHasValue(String cssAttribute, String expectedValue) {
         isNotNull();
         String message = "Expected element to have css attribute <%s> value <%s>. But was <%s>";
         String actualValue = actual.getCssValue(cssAttribute);
         if (!actualValue.equals(expectedValue)) failWithMessage(message, cssAttribute, expectedValue, actualValue);
+        return this;
+    }
+
+    public WebElementAssert hasAttribute(String attribute) {
+        isNotNull();
+        if (Objects.isNull(actual.getAttribute(attribute))) {
+            failWithMessage("Element has no attribute <%s>", attribute);
+        }
         return this;
     }
 
@@ -140,14 +139,6 @@ public class WebElementAssert extends AbstractAssert<WebElementAssert, WebElemen
         String message = "Expected element to be not empty string, not null, and not whitespace characters only. But contained <%s>";
         String actualValue = actual.getText();
         if (StringUtils.isBlank(actualValue)) failWithMessage(message, actualValue);
-        return this;
-    }
-
-    public WebElementAssert hasAttribute(String attribute) {
-        isNotNull();
-        if (Objects.isNull(actual.getAttribute(attribute))) {
-            failWithMessage("Element has no attribute <%s>", attribute);
-        }
         return this;
     }
 }
