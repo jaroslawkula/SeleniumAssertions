@@ -22,13 +22,14 @@
 
 #### Create assertions in easy way
 ```
-WebElementAssert.assertThat(page.getTitle).hasText(title);
-WebElementAssert.assertThat(page.getSaveButton).isNotEnabled();
+WebElementAssert.assertThat(page.getTitle()).hasText(title);
+WebElementAssert.assertThat(page.getSaveButton()).isNotEnabled();
 ```
 
-#### Or softly - there is not need to assertAll at the end as soft assertions extends AutoCloseableSoftAssertions
+#### Or softly - there is not need to assertAll at the end as soft assertions extends: 
+`<AutoCloseableSoftAssertions>`
 ```
 var softly = new WebElementSoftAssertions();
-softly.assertThat(page.getTitle).hasText(title);
-softly.assertThat(page.getSaveButton).isNotEnabled();
+softly.assertThat(page.getTitle()).hasText(title);
+softly.assertThat(page.getSaveButton()).isNotEnabled();
 ```
