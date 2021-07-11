@@ -2,18 +2,24 @@
 #### AssertJ based assertions to assert Selenium WebElements
 
 - isDisplayed
+- isNotDisplayed
 - isEnabled
 - isNotEnabled
 - isSelected
 - isNotSelected
+- isButton
+- isLink- 
 - hasAttributeValue
 - attributeValueEndsWith
+- attributeValueEndsWithAnyOf
 - attributeValueStartsWith
 - attributeValueStartsWithAnyOf
-- valueAttributeHas
-- cssAttributeHasValue
+- hasValueAttribute
+- hasCssValue
 - hasAttribute
+- hasNoAttribute
 - hasText
+- hasTextIgnoringCase
 - isEmpty
 - isNotEmpty
 - isBlank
