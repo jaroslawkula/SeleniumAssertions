@@ -8,7 +8,7 @@
 - isSelected
 - isNotSelected
 - isButton
-- isLink- 
+- isLink
 - hasAttributeValue
 - attributeValueEndsWith
 - attributeValueEndsWithAnyOf
