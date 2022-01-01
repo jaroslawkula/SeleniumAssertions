@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.jaroslawkula/seleniumassertions/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.jaroslawkula/seleniumassertions)
+
 # SeleniumAssertions
 #### AssertJ based assertions to assert Selenium WebElements
 
