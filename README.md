@@ -1,4 +1,5 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.jaroslawkula/seleniumassertions/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.jaroslawkula/seleniumassertions)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.jaroslawkula/seleniumassertions?logo=github)
+[![GitHub license](https://img.shields.io/github/license/jaroslawkula/SeleniumAssertions)](https://github.com/jaroslawkula/SeleniumAssertions/blob/master/LICENSE)
 
 # SeleniumAssertions
 #### AssertJ based assertions to assert Selenium WebElements
