@@ -114,7 +114,7 @@
         <assertj.version>3.13.2</assertj.version>
         <selenium.version>4.0.0-alpha-3</selenium.version>
         <commons.lang3.version>3.9</commons.lang3.version>
-        <testng.version>7.1.0</testng.version>
+        <testng.version>7.7.0</testng.version>
         <mockito.version>1.10.19</mockito.version>
     </properties>
 
